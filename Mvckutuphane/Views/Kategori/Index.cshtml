@@ -1,0 +1,31 @@
+﻿@using Mvckutuphane.Models.Entity
+@model List<TBLKATAGORI>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Kategoriler</h2>
+
+<table class="table table-striped">
+
+    <tr style="background-color:#f8d114">
+        <th>KATEGORİ ID</th>
+        <th>KATEGORİ ADI</th>
+        <th> SİL</th>
+        <th> GÜNCELE</th>
+    </tr>
+    @foreach (var ktg in Model)
+    {
+
+        <tr>
+            <td>@ktg.ID</td>
+            <td>@ktg.AD</td>
+            <td><a href="/Kategori/KategoriSil/@ktg.ID" class="btn btn-danger">SİL</a></td>
+            <td><a href="/Kategori/KategoriGetir/@ktg.ID" class="btn btn-success">GÜNCELLE</a></td>
+
+        </tr>
+    }
+
+</table>
+<a href="/Kategori/KategoriEkle/" class="btn btn-primary">Yeni Kategori Ekle</a>

@@ -1,0 +1,37 @@
+﻿@model Mvckutuphane.Models.Entity.TBLADMİN
+
+
+@{
+    ViewBag.Title = "AdminEkle";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Admin Ekle</h2>
+
+
+
+<form class="form-group" method="post">
+    
+    <div style="margin-top:15px">
+        <label>Mail Adresi</label>
+        @Html.TextBoxFor(x => x.MAIL, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.MAIL, "", new { @style = "color:red" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Kullanıcı Adı</label>
+        @Html.TextBoxFor(x => x.KULLANICIADİ, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.KULLANICIADİ, "", new { @style = "color:red" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Şifre</label>
+        @Html.TextBoxFor(x => x.SIFRE, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.SIFRE, "", new { @style = "color:red" })
+    </div>
+   
+    <div style="margin-top:15px">
+        <button class="btn btn-info" id="Btn1"> Admin Ekle</button>
+
+    </div>
+
+
+</form>

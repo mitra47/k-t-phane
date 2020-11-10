@@ -1,0 +1,42 @@
+﻿@using Mvckutuphane.Models.Entity
+@model List<TBLADMİN>
+
+
+    @{
+        ViewBag.Title = "Index";
+        Layout = "~/Views/Shared/Layout.cshtml";
+    }
+
+
+
+    <h2>Admin Kayıt</h2>
+
+
+
+    <table class="table table-striped ">
+        <tr style="background-color:lightgray">
+            <th>Admin ID</th>
+            <th>Kullanıcı Adı</th>
+            <th>Mail</th>
+            <th>Şifre</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+
+
+        </tr>
+
+        @foreach (var  ad in Model)
+        {
+            <tr>
+                <td>@ad.Admin_id</td>
+                <td>@ad.KULLANICIADİ</td>
+                <td>@ad.MAIL</td>
+                <td>@ad.SIFRE</td>
+
+                <td><a href="/Admin/AdminSil/@ad.Admin_id" class="btn btn-danger">SİL</a></td>
+                <td><a href="/Admin/AdminGetir/@ad.Admin_id" class="btn btn-primary">Güncelle</a></td>
+            </tr>
+        }
+
+    </table>
+    <a href="/Admin/AdminEkle/" class="btn btn-primary">Yeni Admin Ekle </a>

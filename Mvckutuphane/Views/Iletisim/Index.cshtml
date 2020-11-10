@@ -1,0 +1,48 @@
+﻿@using Mvckutuphane.Models.Entity
+@model List<TBLILETISIM>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+@*@model Mvckutuphane.Models.Sınıflarım.FormModel
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}*@
+
+<h2>Gelen Email</h2>
+
+<table class="table table-striped">
+    <tr style="background-color:#f8d114">
+        @*<th>Id</th>*@
+        <th>Ad Soyad</th>
+        <th>Mail</th>
+        <th>Konu</th>
+        <th>Mesaj</th>
+        <th>Sil</th>
+
+    </tr>
+    @foreach (var z in Model)
+    {
+<tr>
+    @*<td>@z.ID</td>*@
+    <td>@z.AD</td>
+    <td>@z.MAIL</td>
+    <td>@z.KONU</td>
+    <td>@z.MESAJ</td>
+
+    <td><a href="/Iletisim/MailSil/@z.ID" class="btn btn-danger">SİL</a></td>
+    @*<td>
+             @Html.ActionLink("Sil", "YazarSil", new { id = z.ID }, new
+         {
+             @class = "btn btn-danger",
+
+        onclick = "return confirm ('Silmek İstiyor Musunuz?')"
+         })
+         </td>*@
+
+</tr>
+    }
+</table>
+
+
+

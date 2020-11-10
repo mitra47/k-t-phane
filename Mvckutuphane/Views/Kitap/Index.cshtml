@@ -1,0 +1,56 @@
+﻿@using Mvckutuphane.Models.Entity
+@model List<TBLKITAP>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Kitap Sayfası </h2>
+
+@using (Html.BeginForm("Index", "Kitap", FormMethod.Get))
+{
+    <div style=" margin-bottom:15px; margin-top:15px;">
+        <b>Aranacak Kitap Adını Giriniz: &nbsp;</b>@Html.TextBox("p")
+        <input type="submit" value="Ara" />
+    </div>
+}
+
+
+
+<table class=" table table-striped">
+    <tr style="background-color:#f8d114">
+        <th>ID</th>
+        <th>Kitap Adı</th>
+        <th>Kitap Yazarı</th>
+        <th>Kategori</th>
+        <th>Basım Yılı</th>
+        <th>Basım Evi</th>
+        <th>Sayfa Sayısı</th>
+        <th>Durum</th>
+        <th>SİL</th>
+        <th>GÜNCELLE</th>
+    </tr>
+
+    @foreach (var k in Model)
+    {
+        <tr>
+            <td>@k.ID</td>
+            <td>@k.ADI</td>
+            <td>@k.TBLYAZAR.AD&nbsp;@k.TBLYAZAR.SOYADI  </td>
+            <td>@k.TBLKATAGORI.AD</td>
+            <td>@k.BASIMYILI</td>
+            <td>@k.YAYINEVI</td>
+            <td>@k.SAYFA</td>
+            <td>@k.DURUM</td>
+
+            <td><a href="/Kitap/KitapSil/@k.ID" class="btn btn-danger">SİL</a></td>
+            <td>
+                <a href="/Kitap/KitapGetir/@k.ID" class="btn btn-success">GÜNCELLE</a>
+            </td>
+        </tr>
+    }
+
+</table>
+@*@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }))*@
+
+<a href="/Kitap/KitapEkle/" class="btn btn-primary">Yeni Kitap Ekle</a>

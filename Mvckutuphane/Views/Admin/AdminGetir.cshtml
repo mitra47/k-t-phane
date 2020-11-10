@@ -1,0 +1,32 @@
+﻿@model Mvckutuphane.Models.Entity.TBLADMİN
+
+    @{
+        ViewBag.Title = "AdminGetir";
+        Layout = "~/Views/Shared/Layout.cshtml";
+    }
+
+    <h2>AdminGetir</h2>
+
+    @using (Html.BeginForm("AdminGuncelle", "Admin", FormMethod.Post))
+    {
+        <div style="margin-bottom:15px"></div>
+        <div class="form-group">
+            @Html.LabelFor(k =>k.Admin_id)
+            @Html.TextBoxFor(k => k.Admin_id, new { @class = "form-control" })
+            <br />
+            @Html.LabelFor(k => k.MAIL)
+            @Html.TextBoxFor(k => k.MAIL, new { @class = "form-control" })
+            <br />
+            @Html.LabelFor(k => k.KULLANICIADİ)
+            @Html.TextBoxFor(k => k.KULLANICIADİ, new { @class = "form-control" })
+            <br />
+            @Html.LabelFor(k => k.SIFRE)
+            @Html.TextBoxFor(k => k.SIFRE, new { @class = "form-control" })
+            <br />
+           
+        </div>
+        <div>
+            <button class="btn btn-warning">Güncelle</button>
+        </div>
+
+    }
